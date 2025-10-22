@@ -1,0 +1,533 @@
+/* --- Variables CSS (Colores usados en el diseño original) --- */
+:root {
+    --color-primary: #1d53a1; /* Azul principal */
+    --color-accent: #7bc143;  /* Verde/Lima de acento */
+    --color-background: #ffffff;
+    --color-dark-text: #121212;
+    --color-muted-text: #6b7280;
+    --color-card-bg: #ffffff;
+    --color-header-bg: rgba(255, 255, 255, 0.9);
+}
+
+/* --- Base y Tipografía --- */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', Arial, sans-serif;
+    color: var(--color-dark-text);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #f4f4f9; /* Fondo muy claro para el cuerpo */
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-primary);
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: var(--color-accent);
+}
+
+.page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main-content {
+    flex-grow: 1;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* --- Titulares y Subtítulos --- */
+.hero-title, .section-title, .card-title {
+    font-family: 'Geist', sans-serif; /* Usando una fuente moderna de ejemplo */
+    font-weight: 700;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+}
+.section-subtitle {
+    font-size: 1.25rem;
+    color: var(--color-muted-text);
+}
+.text-primary {
+    color: var(--color-primary);
+}
+.text-accent {
+    color: var(--color-accent);
+}
+
+/* --- Botones (Buttons) --- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 28px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background-color 0.3s, transform 0.2s;
+    border: none;
+    cursor: pointer;
+    gap: 8px;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+}
+.btn-primary:hover {
+    background-color: #163e79;
+}
+
+.btn-secondary {
+    background-color: #f0f0f0;
+    color: var(--color-dark-text);
+}
+.btn-secondary:hover {
+    background-color: #e0e0e0;
+}
+
+
+/* --- Header (Navbar) --- */
+.header {
+    background-color: var(--color-header-bg);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #e0e0e0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    height: 64px; /* 4rem */
+    display: flex;
+    align-items: center;
+}
+
+.navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--color-dark-text);
+    font-weight: bold;
+}
+
+.logo-text {
+    font-size: 1.25rem; /* text-xl */
+}
+
+.nav-menu {
+    display: none; /* Ocultar por defecto para móviles */
+    gap: 24px;
+}
+
+.nav-menu a {
+    color: var(--color-muted-text);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.nav-menu a:hover {
+    color: var(--color-primary);
+}
+
+.menu-button {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--color-dark-text);
+}
+
+/* Mostrar menú y ocultar botón en desktop */
+@media (min-width: 768px) {
+    .nav-menu {
+        display: flex;
+    }
+    .menu-button {
+        display: none;
+    }
+}
+
+
+/* --- Hero Section --- */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    
+    /* Simulación de imagen de fondo (reemplaza con tu URL real) */
+    background-image: url('https://images.unsplash.com/photo-1604011237320-8e0506614fdf?q=80&w=1974&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6); /* Capa oscura para el texto */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.max-width-text {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-title {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.hero-subtitle {
+    font-size: 1.125rem;
+    margin-top: 1.5rem;
+    color: #e5e7eb;
+}
+
+.hero-actions {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+/* --- General Section Styling --- */
+.section {
+    padding: 3rem 0;
+}
+
+.section-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+}
+
+.services-section {
+    background-color: var(--color-background);
+}
+
+
+/* --- Services Grid --- */
+.services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .services-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.card-link {
+    display: flex;
+}
+
+.service-card {
+    background-color: var(--color-card-bg);
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 24px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    width: 100%;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+.icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 64px;
+    width: 64px;
+    border-radius: 50%;
+    background-color: rgba(29, 83, 161, 0.1); /* Primary / 10% opacity */
+    margin: 0 auto 1rem;
+}
+
+.icon-primary {
+    font-size: 2rem;
+    color: var(--color-primary);
+}
+
+.card-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-description {
+    font-size: 0.9rem;
+    color: var(--color-muted-text);
+}
+
+
+/* --- Web Dev Section --- */
+.web-dev-section {
+    background-color: #f4f4f9; /* Fondo de acento sutil */
+}
+
+.grid-2-cols {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .grid-2-cols {
+        grid-template-columns: 1fr 1fr;
+    }
+    .web-dev-content {
+        order: 1; /* Para que el texto vaya a la izquierda en desktop */
+    }
+    .web-dev-image {
+        order: 2; /* Para que la imagen vaya a la derecha en desktop */
+    }
+}
+
+.badge {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: rgba(29, 83, 161, 0.1);
+    color: var(--color-primary);
+    padding: 4px 12px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.feature-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 2rem;
+    space-y: 1rem;
+}
+
+.feature-list li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    color: var(--color-muted-text);
+}
+
+.feature-list i {
+    margin-right: 12px;
+    flex-shrink: 0;
+    margin-top: 4px;
+}
+
+.web-dev-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-placeholder {
+    width: 100%;
+    max-width: 450px;
+    height: 300px;
+    background-color: #e0e0e0;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #6b7280;
+    font-size: 1rem;
+}
+
+.image-placeholder i {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.mt-30 {
+    margin-top: 30px;
+}
+
+/* --- FAQ Section --- */
+.faq-section {
+    background-color: var(--color-background);
+}
+
+.faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.faq-question {
+    background-color: #f9f9f9;
+    padding: 1rem;
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    position: relative;
+    user-select: none;
+}
+
+.faq-question::after {
+    content: '+';
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.3s;
+}
+
+.faq-item.active .faq-question::after {
+    content: '−';
+}
+
+.faq-answer {
+    padding: 0 1rem;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 200px; /* Suficiente altura para el contenido */
+    padding: 1rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+.faq-answer p {
+    margin: 0;
+    padding-bottom: 10px;
+    color: var(--color-muted-text);
+}
+
+/* --- Footer --- */
+.footer {
+    background-color: #212121;
+    color: white;
+    padding: 2.5rem 0;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 600px) {
+    .footer-content {
+        grid-template-columns: 1fr repeat(2, minmax(0, 1fr));
+    }
+}
+
+.footer-brand .logo-text {
+    font-size: 1.5rem;
+}
+
+.footer-brand .mt-10 {
+    margin-top: 10px;
+    font-size: 0.85rem;
+    color: #a0a0a0;
+}
+
+.footer-links h4 {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: var(--color-accent);
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.5rem;
+    color: #a0a0a0;
+}
+
+.footer-links a {
+    color: #a0a0a0;
+}
+
+.footer-links a:hover {
+    color: var(--color-primary);
+}
+/* --- Estilos Adicionales para el Menú Móvil --- */
+@media (max-width: 767px) {
+    .nav-menu {
+        position: absolute;
+        top: 64px; /* Altura del header */
+        left: 0;
+        width: 100%;
+        background-color: var(--color-header-bg);
+        flex-direction: column;
+        padding: 0;
+        display: none; /* Oculto por defecto */
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        border-top: 1px solid #e0e0e0;
+    }
+    .nav-menu.mobile-open {
+        display: flex; /* Mostrar cuando la clase mobile-open está activa */
+    }
+    .nav-menu a {
+        padding: 0.75rem 1rem;
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid #e0e0e0;
+    }
+    .nav-menu a:last-child {
+        border-bottom: none;
+    }
+}
